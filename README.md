@@ -1,2 +1,4 @@
-# gba-scenic-route-env
-A template for a base environment to use with the GBA Scenic Route.
+# Bouncers
+An exercise to learn about functions and classes.
+
+Please find instructions in [instructions.md](instructions.md).
