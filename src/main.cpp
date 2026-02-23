@@ -87,15 +87,19 @@ bn::fixed average_x( bn::vector<Bouncer, MAX_BOUNCERS> bouncers ) {
 
 }
 
-void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)   {
+void add_bouncer(bn::random& random,bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)   {
     if(bouncers.size() < bouncers.max_size()) {
-        bouncers.push_back(Bouncer());
+        Bouncer bouncer = Bouncer();
+        // 6 - 3 sets the ranges too get all values from - too + values
+        bouncer.x_speed = random.get_fixed() % 6 - 3;
+        bouncer.y_speed = random.get_fixed() % 6 - 3;
+        bouncers.push_back(bouncer);
     }
 }
 
 int main() {
     bn::core::init();
-
+    bn::random random;
     bn::vector<Bouncer, MAX_BOUNCERS> bouncers = {};
 
     // constructor
@@ -104,7 +108,7 @@ int main() {
     while(true) {
         // if A is pressed add a new bouncer
         if(bn::keypad::a_pressed()) {
-           add_bouncer(bouncers);
+           add_bouncer(random, bouncers);
         }
 
         if(bn::keypad::b_pressed()) {
