@@ -52,12 +52,12 @@ class Bouncer {
                 x = MIN_X;
                 x_speed *= -1;
             }
-
+            // off the screen from bottom
             if (y > MAX_Y) {
                 y = MAX_Y;
                 y_speed *=-1;
             }
-
+            // off the screen from top
             if (y < MIN_Y) {
                 y = MIN_Y;
                 y_speed *=-1;
@@ -74,6 +74,7 @@ bn::fixed average_x( bn::vector<Bouncer, MAX_BOUNCERS> bouncers ) {
     for(Bouncer& bouncer : bouncers) {
        x_sum += bouncer.sprite.x();
     }
+
 
     bn::fixed x_average= x_sum;
 
