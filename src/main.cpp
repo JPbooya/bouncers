@@ -94,6 +94,9 @@ void add_bouncer(bn::random& random,bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)
         bouncer.x_speed = random.get_fixed() % 6 - 3;
         bouncer.y_speed = random.get_fixed() % 6 - 3;
         bouncers.push_back(bouncer);
+        // color values 0 - 30 
+        bn::color randomColors = bn::color(random.get_int() % 31, random.get_int() % 31, random.get_int() % 31);
+        bn::backdrop::set_color(randomColors);
     }
 }
 
